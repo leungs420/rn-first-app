@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import Switch1 from '../components/Switch'
 
 export default class View1 extends Component {
@@ -27,13 +27,17 @@ export default class View1 extends Component {
     render(){
         const { outputText, switchValue, current, theme } = this.state;
         let current_theme = theme[current]
-        console.log(current)
+        // console.log(current)
         return (
-            <View style={current_theme}>
-                <Switch1 toggleSwitch1={this.toggleSwitch} switchValue={switchValue} title={"Change Theme"}/>
-                <Text style={current_theme}>{outputText}</Text>
-                <Button style={current_theme} title="Add Count" onPress={() => this.setOutputText(outputText+1)} />
-                <Button style={current_theme} title="Reset Count" onPress={() => this.setOutputText(0)} />
+            <View style={styles.mainView}>
+                <View style={styles.white}> 
+                     {/* style={current_theme}> */}
+                    {/* <Switch1 toggleSwitch1={this.toggleSwitch} switchValue={switchValue} title={"Change Theme"}/> */}
+                    {/* <Text style={current_theme}>{outputText}</Text> */}
+                    <TextInput placeholder="Enter Here" style={styles.inputStyle} />
+                    {/* <Button title="Add Count" onPress={() => this.setOutputText(outputText+1)} /> */}
+                    <Button title="Reset Count" onPress={() => this.setOutputText(0)} />
+                </View>
             </View>
         );
     }
@@ -53,15 +57,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     color: 'white'
   },
+  mainView: {
+    borderColor: 'black', 
+    height:'100%', 
+    padding:50, 
+    justifyContent: 'space-around', 
+    alignItems: 'stretch'
+  },
   white: {
     flex: 1,
-    backgroundColor: 'white',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    color: 'black'
   },
-  switchText: {
-      color: 'white',
-      display: 'inline'
+//   switchText: {
+//       color: 'white',
+//       display: 'inline'
+//   },
+  inputStyle: {
+      borderWidth: 1,
+      borderBottomColor: 'black',
+      borderBottomWidth: 1,
+      padding: 10,
+      width: '80%',
   }
 });
