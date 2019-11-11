@@ -19,6 +19,11 @@ export default function View1() {
         });
     }
 
+    const cancalGoalHandler = () => {
+      setIsAddMode(false)
+    }
+
+
     // toggleSwitch = (value) => {
     //     this.setState({ switchValue: value });
     //     console.log(value)
@@ -33,7 +38,7 @@ export default function View1() {
     return (
         <View style={styles.mainView}>
             <Button title="Add New Goal" onPress={() => setIsAddMode(true)}/>
-            <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} placeholder="Course Goal"/>
+            <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} placeholder="Course Goal" onCancel={cancalGoalHandler}/>
             
             <FlatList 
                 keyExtractor={(item, index) => item.key}
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
   black: {
     flex: 1,
     backgroundColor: 'black',
-    alignItems: 'censter',
+    alignItems: 'center',
     justifyContent: 'center',
     color: 'white'
   },
