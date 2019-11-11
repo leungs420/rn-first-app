@@ -18,10 +18,7 @@ const GoalInput = props => {
                     onChangeText={goalInputHandler} 
                     value={enteredGoal}   
                 />
-                <Button title="Add" onPress={() =>{ 
-                    props.onAddGoal(enteredGoal);
-                    props.onHide(false);
-                }} />
+                <Button title="Add" onPress={() => props.onAddGoal(enteredGoal) } />
             </View>
         </Modal>
     );

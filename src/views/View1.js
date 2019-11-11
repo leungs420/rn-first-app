@@ -10,7 +10,8 @@ export default function View1() {
 
     const addGoalHandler = (enteredGoal) => {
         setCourseGoals(currentGoals => [...currentGoals, {key: Object.keys(courseGoals).length+1, value: enteredGoal}])
-    }
+        setIsAddMode(false)
+      }
 
     const deleteListItem = (goalId) => {
         setCourseGoals((courseGoals) => {
@@ -32,7 +33,7 @@ export default function View1() {
     return (
         <View style={styles.mainView}>
             <Button title="Add New Goal" onPress={() => setIsAddMode(true)}/>
-            <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} placeholder="Course Goal" onHide={setIsAddMode}/>
+            <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} placeholder="Course Goal"/>
             
             <FlatList 
                 keyExtractor={(item, index) => item.key}
